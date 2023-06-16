@@ -1,5 +1,5 @@
 **Note:**   
-Code and instructions relating to the previous version of the tutorial [Build a database-driven Slackbot](https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-slack-chatbot-database-watson) are located in the [branch **cloud-functions**](https://github.com/IBM-Cloud/slack-chatbot-database-watson/tree/cloud-functions).
+Code test and instructions relating to the previous version of the tutorial [Build a database-driven Slackbot](https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-slack-chatbot-database-watson) are located in the [branch **cloud-functions**](https://github.com/IBM-Cloud/slack-chatbot-database-watson/tree/cloud-functions).
 
 
 # Build a database-driven Slackbot with IBM Watson Assistant
