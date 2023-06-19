@@ -96,7 +96,8 @@ db = SQLAlchemy(app)
 # sample records to be inserted after table recreation
 sample_coverages=[
     {
-        "country":"Sample",
+        "index":"Sample",
+	"country":"Sample",
 	"shortname":"Sample",
         "gbg":"Sample",
         "motion":"Sample",
@@ -105,7 +106,8 @@ sample_coverages=[
     	"covered","Sample",
     },
     {
-        "country":"Sample",
+        "index":"Sample",
+	"country":"Sample",
 	"shortname":"Sample",
         "gbg":"Sample",
         "motion":"Sample",
@@ -122,7 +124,8 @@ sample_coverages=[
 class CoverageModel(db.Model):
     __tablename__ = 'SA_COVERAGES'
     __table_args__ = TABLE_ARGS
-    gbg = db.Column('GBG',db.String(255)), primary_key=True)
+    index = db.Column('INDEX',db.Integer), primary_key=True)
+    gbg = db.Column('GBG',db.String(255))
     country = db.Column('COUNTRY',db.String(255))
     shortname = db.Column('SHORTNAME',db.String(255))
     motion = db.Column('MOTION',db.String(255))
@@ -134,6 +137,7 @@ class CoverageModel(db.Model):
 
 # the Python output for Coverages
 class CoverageOutSchema(Schema):
+    index = Integer()
     gbg = String()
     country = String()
     shortname = String()
@@ -171,7 +175,7 @@ def verify_token(token):
     else:
         return None
 
-# retrieve a single coverage record by CEID
+# retrieve a single coverage record by GBG
 @app.get('/sa_coverages/gbg/<string:gbg>')
 @app.output(CoverageOutSchema)
 @app.auth_required(auth)
