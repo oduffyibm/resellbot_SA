@@ -1,5 +1,5 @@
 # Custom extension for IBM Watson Assistant which provides a
-# REST API around a single database table (COVERAGES).
+# REST API around a single database table (SA_Coverages).
 #
 # The code demonstrates how a simple REST API can be developed and
 # then deployed as serverless app to IBM Cloud Code Engine.
@@ -20,7 +20,7 @@ from apiflask.validators import Length, Range
 from flask_sqlalchemy import SQLAlchemy
 
 # Set how this API should be titled and the current version
-API_TITLE='Coverages API for Watson Assistant'
+API_TITLE='SA_Coverages API for Watson Assistant'
 API_VERSION='1.0.0'
 
 # create the app
@@ -96,119 +96,62 @@ db = SQLAlchemy(app)
 # sample records to be inserted after table recreation
 sample_coverages=[
     {
-        "shortname":"Sample",
-        "ceid":"Sample",
+        "country":"Sample",
+	"shortname":"Sample",
+        "gbg":"Sample",
         "motion":"Sample",
-        "crosstps":"Sample",
-	"bpspow":"Sample",
-    	"bpsstor":"Sample",
-    	"bpsda":"Sample",
-    	"bpsauto":"Sample",
-    	"bpssec":"Sample",
-    	"bpssus":"Sample",
-	"bpscross":"Sample",
-	"ptspow":"Sample",
-    	"ptsstor":"Sample",
-    	"ptsda":"Sample",
-	"ptsauto":"Sample",
-	"ptssec":"Sample",
-    	"ptssus":"Sample",
-    	"ptscross":"Sample",
+        "ipsbuild":"Sample",
+	"ipsservice":"Sample",
+    	"covered","Sample",
     },
     {
-        "shortname":"Demonstration",
-        "ceid":"Demonstration",
-        "motion":"Demonstration",
-	"crosstps":"Demonstration",
-    	"bpspow":"Demonstration",
-    	"bpsstor":"Demonstration",
-    	"bpsda":"Demonstration",
-    	"bpsauto":"Demonstration",
-    	"bpssec":"Demonstration",
-    	"bpssus":"Demonstration",
-	"bpscross":"Demonstration",
-    	"ptspow":"Demonstration",
-    	"ptsstor":"Demonstration",
-	"ptsda":"Demonstration",
-	"ptsauto":"Demonstration",
-    	"ptssec":"Demonstration",
-    	"ptssus":"Demonstration",
-    	"ptscross":"Demonstration",
+        "country":"Sample",
+	"shortname":"Sample",
+        "gbg":"Sample",
+        "motion":"Sample",
+        "ipsbuild":"Sample",
+	"ipsservice":"Sample",
+    	"covered","Sample",
     },
 
 ]
 
 
-# Schema for table “COVERAGES"
-# Set default schema to "COVERAGES"
+# Schema for table “SA_COVERAGES"
+# Set default schema to "SA_COVERAGES"
 class CoverageModel(db.Model):
-    __tablename__ = 'COVERAGES'
+    __tablename__ = 'SA_COVERAGES'
     __table_args__ = TABLE_ARGS
-    cid = db.Column('CID',db.Integer, primary_key=True)
-    shortname = db.Column('PARTNAME',db.String(255))
-    ceid = db.Column('CEID',db.String(255))
+    gbg = db.Column('GBG',db.String(255)), primary_key=True)
+    country = db.Column('COUNTRY',db.String(255))
+    shortname = db.Column('SHORTNAME',db.String(255))
     motion = db.Column('MOTION',db.String(255))
-    crosstps = db.Column('CROSSTPS',db.String(255))
-    bpspow = db.Column('BPSPOW',db.String(255))
-    bpsstor = db.Column('BPSSTOR',db.String(255))
-    bpsda = db.Column('BPSDA',db.String(255))
-    bpsauto = db.Column('BPSAUTO',db.String(255))
-    bpssec = db.Column('BPSSEC',db.String(255))
-    bpssus = db.Column('BPSSUS',db.String(255))
-    bpscross = db.Column('BPSCROSS',db.String(255))
-    ptspow = db.Column('PTSPOW',db.String(255))
-    ptsstor = db.Column('PTSSTOR',db.String(255))
-    ptsda = db.Column('PTSDA',db.String(255))
-    ptsauto = db.Column('PTSAUTO',db.String(255))
-    ptssec = db.Column('PTSSEC',db.String(255))
-    ptssus = db.Column('PTSSUS',db.String(255))
-    ptscross = db.Column('PTSCROSS',db.String(255))
+    ipsbuild = db.Column('IPSBUILD',db.String(255))
+    ipsservice = db.Column('IPSSERVICE',db.String(255))
+    covered = db.Column('COVERED',db.String(255))
     
 
 
 # the Python output for Coverages
 class CoverageOutSchema(Schema):
-    cid = Integer()
+    gbg = String()
+    country = String()
     shortname = String()
-    ceid = String()
     motion = String()
-    crosstps = String()
-    bpspow = String()
-    bpsstor = String()
-    bpsda = String()
-    bpsauto = String()
-    bpssec = String()
-    bpssus = String()
-    bpscross = String()
-    ptspow = String()
-    ptsstor = String()
-    ptsda = String()
-    ptsauto = String()
-    ptssec = String()
-    ptssus = String()
-    ptscross = String()
+    ipsbuild = String()
+    ipsservice = String()
+    covered = String()
 
 
-# the Python input for Coverages
+# the Python input for SA_Coverages
 class CoverageInSchema(Schema):
+    gbg = String(required=True, validate=Length(0, 255))
+    country = String(required=True, validate=Length(0, 255))
     shortname = String(required=True, validate=Length(0, 255))
-    ceid = String(required=True, validate=Length(0, 255))
-    motion = String(required=True, validate=Length(0, 255))
-    crosstps = String(required=True, validate=Length(0,255))
-    bpspow = String(required=True, validate=Length(0,255))
-    bpsstor = String(required=True, validate=Length(0,255))
-    bpsda = String(required=True, validate=Length(0,255))
-    bpsauto = String(required=True, validate=Length(0,255))
-    bpssec = String(required=True, validate=Length(0,255))
-    bpssus = String(required=True, validate=Length(0,255))
-    bpscross = String(required=True, validate=Length(0,255))
-    ptspow = String(required=True, validate=Length(0,255))
-    ptsstor = String(required=True, validate=Length(0,255))
-    ptsda = String(required=True, validate=Length(0, 255))
-    ptsauto = String(required=True, validate=Length(0, 255))
-    ptssec = String(required=True, validate=Length(0,255))
-    ptssus = String(required=True, validate=Length(0,255))
-    ptscross = String(required=True, validate=Length(0,255))
+    motion = String(required=True, validate=Length(0,255))
+    ipsbuild = String(required=True, validate=Length(0,255))
+    ipsservice = String(required=True, validate=Length(0,255))
+    covered = String(required=True, validate=Length(0,255))
     
 
 # use with pagination
@@ -229,15 +172,15 @@ def verify_token(token):
         return None
 
 # retrieve a single coverage record by CEID
-@app.get('/coverages/ceid/<string:ceid>')
+@app.get('/sa_coverages/gbg/<string:gbg>')
 @app.output(CoverageOutSchema)
 @app.auth_required(auth)
-def get_coverage_ceid(ceid):
-    """Coverage record by CEID
-    Retrieve a single coverage record by its CEID
+def get_coverage_gbg(gbg):
+    """Coverage record by GBG
+    Retrieve a single coverage record by its GBG
     """
-    search="%{}%".format(ceid)
-    return CoverageModel.query.filter(CoverageModel.ceid.ilike(search)).first()
+    search="%{}%".format(gbg)
+    return CoverageModel.query.filter(CoverageModel.gbg.ilike(search)).first()
 
 # retrieve a single coverage record by name
 @app.get('/coverages/name/<string:short_name>')
@@ -280,7 +223,7 @@ def get_coverages(query):
 @app.auth_required(auth)
 def create_coverage(data):
     """Insert a new coverage record
-    Insert a new coverage record with the given attributes. Its new CEID is returned.
+    Insert a new coverage record with the given attributes. Its new GBG is returned.
     """
     coverage = CoverageModel(**data)
     db.session.add(coverage)
@@ -292,11 +235,11 @@ def create_coverage(data):
 @app.delete('/coverages/ceid/<int:ceid>')
 @app.output({}, 204)
 @app.auth_required(auth)
-def delete_coverage(ceid):
-    """Delete a coverage record by CEID
-    Delete a single coverage record identified by its CEID.
+def delete_coverage(gbg):
+    """Delete a coverage record by gbg
+    Delete a single coverage record identified by its gbg.
     """
-    coverage = CoverageModel.query.get_or_404(ceid)
+    coverage = CoverageModel.query.get_or_404(gbg)
     db.session.delete(coverage)
     db.session.commit()
     return ''
@@ -332,7 +275,7 @@ def print_default():
     health check
     """
     # returning a dict equals to use jsonify()
-    return {'message': 'This is the Coverage API server'}
+    return {'message': 'This is the South America Coverage API server'}
 
 
 # Start the actual app
