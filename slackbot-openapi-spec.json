@@ -1,6 +1,6 @@
 {
   "info": {
-    "title": "Coverages API for Watson Assistant",
+    "title": "SA_Coverages API for Watson Assistant",
     "version": "1.0.0"
   },
   "tags": [],
@@ -150,7 +150,7 @@
           }
         },
         "summary": "Insert a new coverage record",
-        "description": "Insert a new coverage record with the given attributes. Its new CEID is returned.",
+        "description": "Insert a new coverage record with the given attributes. Its new GBG is returned.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -219,12 +219,12 @@
         ]
       }
     },
-    "/coverages/ceid/{ceid}": {
+    "/coverages/gbg/{gbg}": {
       "get": {
         "parameters": [
           {
             "in": "path",
-            "name": "ceid",
+            "name": "gbg",
             "schema": {
               "type": "string"
             },
@@ -263,8 +263,8 @@
             "description": "Not found"
           }
         },
-        "summary": "Coverage record by CEID",
-        "description": "Retrieve a single coverage record by its CEID",
+        "summary": "Coverage record by GBG",
+        "description": "Retrieve a single coverage record by its GBG",
         "security": [
           {
             "ApiKeyAuth": []
@@ -275,7 +275,7 @@
         "parameters": [
           {
             "in": "path",
-            "name": "ceid",
+            "name": "gbg",
             "schema": {
               "type": "string"
             },
@@ -307,8 +307,8 @@
             "description": "Not found"
           }
         },
-        "summary": "Delete an coverage record by CEID",
-        "description": "Delete a single coverage record identified by its CEID.",
+        "summary": "Delete an coverage record by GBG",
+        "description": "Delete a single coverage record identified by its GBG.",
         "security": [
           {
             "ApiKeyAuth": []
@@ -448,58 +448,25 @@
       "CoverageOut": {
         "type": "object",
         "properties": {
+          "country": {
+            "type": "string"
+          },
           "shortname": {
             "type": "string"
           },
-          "ceid": {
+          "gbg": {
             "type": "string"
           },
           "motion": {
             "type": "string"
           },
-          "crosstps": {
+          "ipsbuild": {
             "type": "string"
           },
-          "bpspow": {
+          "ipsservice": {
             "type": "string"
           },
-          "bpsstor": {
-            "type": "string"
-          },
-          "bpsda": {
-            "type": "string"
-          },
-          "bpsauto": {
-            "type": "string"
-          },
-          "bpssec": {
-            "type": "string"
-          },
-          "bpssus": {
-            "type": "string"
-          },
-          "bpscross": {
-            "type": "string"
-          },
-          "ptspow": {
-            "type": "string"
-          },
-          "ptsstor": {
-            "type": "string"
-          },
-          "ptsda": {
-            "type": "string"
-          },
-          "ptsauto": {
-            "type": "string"
-          },
-          "ptssec": {
-            "type": "string"
-          },
-          "ptssus": {
-            "type": "string"
-          },
-          "ptscross": {
+          "covered": {
             "type": "string"
           }
         }
@@ -521,12 +488,17 @@
       "CoverageIn": {
         "type": "object",
         "properties": {
+          "country": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
           "shortname": {
             "type": "string",
             "minLength": 0,
             "maxLength": 255
           },
-          "ceid": {
+          "gbg": {
             "type": "string",
             "minLength": 0,
             "maxLength": 255
@@ -536,77 +508,17 @@
             "minLength": 0,
             "maxLength": 255
           },
-          "crosstps": {
+          "ipsbuild": {
             "type": "string",
             "minLength": 0,
             "maxLength": 255
           },
-          "bpspow": {
+          "ipsservice": {
             "type": "string",
             "minLength": 0,
             "maxLength": 255
           },
-          "bpsstor": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "bpsda": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "bpsauto": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "bpssec": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "bpssus": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "bpscross": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "ptspow": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "ptsstor": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "ptsda": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "ptsauto": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "ptssec": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "ptssus": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "ptscross": {
+          "covered": {
             "type": "string",
             "minLength": 0,
             "maxLength": 255
@@ -614,11 +526,11 @@
         },
         "required": [
           "motion",
-          "ptsauto",
-          "ptsda",
-          "mgrdaat",
+          "ipsbuild",
+          "ipsservice",
+          "covered",
           "shortname",
-          "ceid"
+          "gbg"
         ]
       }
     },
