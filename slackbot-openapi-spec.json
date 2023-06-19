@@ -307,7 +307,7 @@
             "description": "Not found"
           }
         },
-        "summary": "Delete an coverage record by GBG",
+        "summary": "Delete a coverage record by GBG",
         "description": "Delete a single coverage record identified by its GBG.",
         "security": [
           {
@@ -525,10 +525,6 @@
           }
         },
         "required": [
-          "motion",
-          "ipsbuild",
-          "tpsservice",
-          "covered",
           "shortname",
           "gbg"
         ]
