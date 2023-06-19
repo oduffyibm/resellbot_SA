@@ -463,7 +463,7 @@
           "ipsbuild": {
             "type": "string"
           },
-          "ipsservice": {
+          "tpsservice": {
             "type": "string"
           },
           "covered": {
@@ -513,7 +513,7 @@
             "minLength": 0,
             "maxLength": 255
           },
-          "ipsservice": {
+          "tpsservice": {
             "type": "string",
             "minLength": 0,
             "maxLength": 255
@@ -527,7 +527,7 @@
         "required": [
           "motion",
           "ipsbuild",
-          "ipsservice",
+          "tpsservice",
           "covered",
           "shortname",
           "gbg"
