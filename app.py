@@ -101,7 +101,7 @@ sample_coverages=[
         "gbg":"Sample",
         "motion":"Sample",
         "ipsbuild":"Sample",
-	"ipsservice":"Sample",
+	"tpsservice":"Sample",
     	"covered","Sample",
     },
     {
@@ -110,7 +110,7 @@ sample_coverages=[
         "gbg":"Sample",
         "motion":"Sample",
         "ipsbuild":"Sample",
-	"ipsservice":"Sample",
+	"tpsservice":"Sample",
     	"covered","Sample",
     },
 
@@ -127,7 +127,7 @@ class CoverageModel(db.Model):
     shortname = db.Column('SHORTNAME',db.String(255))
     motion = db.Column('MOTION',db.String(255))
     ipsbuild = db.Column('IPSBUILD',db.String(255))
-    ipsservice = db.Column('IPSSERVICE',db.String(255))
+    tpsservice = db.Column('tpsservice',db.String(255))
     covered = db.Column('COVERED',db.String(255))
     
 
@@ -139,7 +139,7 @@ class CoverageOutSchema(Schema):
     shortname = String()
     motion = String()
     ipsbuild = String()
-    ipsservice = String()
+    tpsservice = String()
     covered = String()
 
 
@@ -150,7 +150,7 @@ class CoverageInSchema(Schema):
     shortname = String(required=True, validate=Length(0, 255))
     motion = String(required=True, validate=Length(0,255))
     ipsbuild = String(required=True, validate=Length(0,255))
-    ipsservice = String(required=True, validate=Length(0,255))
+    tpsservice = String(required=True, validate=Length(0,255))
     covered = String(required=True, validate=Length(0,255))
     
 
