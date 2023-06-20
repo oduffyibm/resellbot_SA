@@ -187,7 +187,7 @@ def get_coverage_gbg(gbg):
     return CoverageModel.query.filter(CoverageModel.gbg.ilike(search)).first()
 
 # retrieve a single coverage record by name
-@app.get('/coverages/name/<string:short_name>')
+@app.get('/sa_coverages/name/<string:short_name>')
 @app.output(CoverageOutSchema)
 @app.auth_required(auth)
 def get_coverage_name(short_name):
@@ -202,13 +202,13 @@ def get_coverage_name(short_name):
 
 
 # get all coverages
-@app.get('/coverages')
+@app.get('/sa_coverages')
 @app.input(CoverageQuerySchema, 'query')
 #@app.input(CoverageInSchema(partial=True), location='query')
 @app.output(CoveragesOutSchema)
 @app.auth_required(auth)
 def get_coverages(query):
-    """all coverages
+    """all sa_coverages
     Retrieve all coverage records
     """
     pagination = CoverageModel.query.paginate(
@@ -216,12 +216,12 @@ def get_coverages(query):
         per_page=query['per_page']
     )
     return {
-        'coverages': pagination.items,
+        'sa_coverages': pagination.items,
         'pagination': pagination_builder(pagination)
     }
 
 # create a coverage record
-@app.post('/coverages')
+@app.post('/sa_coverages')
 @app.input(CoverageInSchema, location='json')
 @app.output(CoverageOutSchema, 201)
 @app.auth_required(auth)
@@ -236,7 +236,7 @@ def create_coverage(data):
 
 
 # delete a coverage record
-@app.delete('/coverages/ceid/<int:ceid>')
+@app.delete('/sa_coverages/gbg/<string:gbg>')
 @app.output({}, 204)
 @app.auth_required(auth)
 def delete_coverage(gbg):
