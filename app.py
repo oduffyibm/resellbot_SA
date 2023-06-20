@@ -103,7 +103,7 @@ sample_coverages=[
         "motion":"Sample",
         "ipsbuild":"Sample",
 	"tpsservice":"Sample",
-    	"covered":"Sample",
+    	"covered":"Sample"
     },
     {
         "index":"Sample",
@@ -113,7 +113,7 @@ sample_coverages=[
         "motion":"Sample",
         "ipsbuild":"Sample",
 	"tpsservice":"Sample",
-    	"covered":"Sample",
+    	"covered":"Sample"
     },
 
 ]
@@ -208,7 +208,7 @@ def get_coverage_name(short_name):
 @app.output(CoveragesOutSchema)
 @app.auth_required(auth)
 def get_coverages(query):
-    """all sa_coverages
+    """all coverages
     Retrieve all coverage records
     """
     pagination = CoverageModel.query.paginate(
@@ -236,7 +236,7 @@ def create_coverage(data):
 
 
 # delete a coverage record
-@app.delete('/sa_coverages/gbg/<string:gbg>')
+@app.delete('/sa_coverages/gbg/<int:gbg>')
 @app.output({}, 204)
 @app.auth_required(auth)
 def delete_coverage(gbg):
