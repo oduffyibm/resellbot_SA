@@ -96,7 +96,6 @@ db = SQLAlchemy(app)
 # sample records to be inserted after table recreation
 sample_coverages=[
     {
-        "index":"Sample",
 	"country":"Sample",
 	"shortname":"Sample",
         "gbg":"Sample",
@@ -106,14 +105,13 @@ sample_coverages=[
     	"covered":"Sample"
     },
     {
-        "index":"Sample",
-	"country":"Sample",
-	"shortname":"Sample",
-        "gbg":"Sample",
-        "motion":"Sample",
-        "ipsbuild":"Sample",
-	"tpsservice":"Sample",
-    	"covered":"Sample"
+	"country":"Demonstration",
+	"shortname":"Demonstration",
+        "gbg":"Demonstration",
+        "motion":"Demonstration",
+        "ipsbuild":"Demonstration",
+	"tpsservice":"Demonstration",
+    	"covered":"Demonstration"
     },
 
 ]
