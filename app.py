@@ -1,5 +1,5 @@
 # Custom extension for IBM Watson Assistant which provides a
-# REST API around a single database table (SA_Coverages).
+# REST API around a single database table (coverages).
 #
 # The code demonstrates how a simple REST API can be developed and
 # then deployed as serverless app to IBM Cloud Code Engine.
@@ -20,7 +20,7 @@ from apiflask.validators import Length, Range
 from flask_sqlalchemy import SQLAlchemy
 
 # Set how this API should be titled and the current version
-API_TITLE='SA_Coverages API for Watson Assistant'
+API_TITLE='coverages API for Watson Assistant'
 API_VERSION='1.0.0'
 
 # create the app
@@ -119,10 +119,10 @@ sample_coverages=[
 ]
 
 
-# Schema for table “SA_COVERAGES"
-# Set default schema to "SA_COVERAGES"
+# Schema for table “coverages"
+# Set default schema to "coverages"
 class CoverageModel(db.Model):
-    __tablename__ = 'SA_COVERAGES'
+    __tablename__ = 'coverages'
     __table_args__ = TABLE_ARGS
     index = db.Column('INDEX',db.Integer, primary_key=True)
     gbg = db.Column('GBG',db.String(255))
@@ -147,7 +147,7 @@ class CoverageOutSchema(Schema):
     covered = String()
 
 
-# the Python input for SA_Coverages
+# the Python input for coverages
 class CoverageInSchema(Schema):
     gbg = String(required=True, validate=Length(0, 255))
     country = String(required=True, validate=Length(0, 255))
@@ -176,7 +176,7 @@ def verify_token(token):
         return None
 
 # retrieve a single coverage record by GBG
-@app.get('/sa_coverages/gbg/<string:gbg>')
+@app.get('/coverages/gbg/<string:gbg>')
 @app.output(CoverageOutSchema)
 @app.auth_required(auth)
 def get_coverage_gbg(gbg):
@@ -187,7 +187,7 @@ def get_coverage_gbg(gbg):
     return CoverageModel.query.filter(CoverageModel.gbg.ilike(search)).first()
 
 # retrieve a single coverage record by name
-@app.get('/sa_coverages/name/<string:short_name>')
+@app.get('/coverages/name/<string:short_name>')
 @app.output(CoverageOutSchema)
 @app.auth_required(auth)
 def get_coverage_name(short_name):
@@ -202,7 +202,7 @@ def get_coverage_name(short_name):
 
 
 # get all coverages
-@app.get('/sa_coverages')
+@app.get('/coverages')
 @app.input(CoverageQuerySchema, 'query')
 #@app.input(CoverageInSchema(partial=True), location='query')
 @app.output(CoveragesOutSchema)
@@ -216,12 +216,12 @@ def get_coverages(query):
         per_page=query['per_page']
     )
     return {
-        'sa_coverages': pagination.items,
+        'coverages': pagination.items,
         'pagination': pagination_builder(pagination)
     }
 
 # create a coverage record
-@app.post('/sa_coverages')
+@app.post('/coverages')
 @app.input(CoverageInSchema, location='json')
 @app.output(CoverageOutSchema, 201)
 @app.auth_required(auth)
@@ -236,7 +236,7 @@ def create_coverage(data):
 
 
 # delete a coverage record
-@app.delete('/sa_coverages/gbg/<int:gbg>')
+@app.delete('/coverages/gbg/<int:gbg>')
 @app.output({}, 204)
 @app.auth_required(auth)
 def delete_coverage(gbg):
