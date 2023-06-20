@@ -103,7 +103,7 @@ sample_coverages=[
         "motion":"Sample",
         "ipsbuild":"Sample",
 	"tpsservice":"Sample",
-    	"covered","Sample",
+    	"covered":"Sample",
     },
     {
         "index":"Sample",
@@ -113,7 +113,7 @@ sample_coverages=[
         "motion":"Sample",
         "ipsbuild":"Sample",
 	"tpsservice":"Sample",
-    	"covered","Sample",
+    	"covered":"Sample",
     },
 
 ]
@@ -124,7 +124,7 @@ sample_coverages=[
 class CoverageModel(db.Model):
     __tablename__ = 'SA_COVERAGES'
     __table_args__ = TABLE_ARGS
-    index = db.Column('INDEX',db.Integer), primary_key=True)
+    index = db.Column('INDEX',db.Integer, primary_key=True)
     gbg = db.Column('GBG',db.String(255))
     country = db.Column('COUNTRY',db.String(255))
     shortname = db.Column('SHORTNAME',db.String(255))
