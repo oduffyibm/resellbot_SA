@@ -98,20 +98,50 @@ sample_coverages=[
     {
 	"country":"Sample",
 	"shortname":"Sample",
-        "gbg":"Sample",
-        "motion":"Sample",
-        "ipsbuild":"Sample",
-	"tpsservice":"Sample",
-    	"covered":"Sample"
+        "ceid":"Sample",
+        "bpsstor":"Sample",
+        "bpspow":"Sample",
+	"crossbpssof":"Sample",
+    	"crossbpsdaa":"Sample",
+	"bpsdaa":"Sample",
+        "bpsauto":"Sample",
+        "bpssus":"Sample",
+        "bpssec":"Sample",
+	"bpscloud":"Sample",
+    	"ptsstor":"Sample",
+	"ptspow":"Sample",
+	"crosspts":"Sample",
+        "crossptsdaa":"Sample",
+        "ptsdaa":"Sample",
+        "ptsauto":"Sample",
+	"ptssus":"Sample",
+	"ptssec":"Sample",
+        "ptscloud":"Sample",
+        "covered":"Sample"
     },
     {
 	"country":"Demonstration",
 	"shortname":"Demonstration",
-        "gbg":"Demonstration",
-        "motion":"Demonstration",
-        "ipsbuild":"Demonstration",
-	"tpsservice":"Demonstration",
-    	"covered":"Demonstration"
+        "ceid":"Demonstration",
+        "bpsstor":"Demonstration",
+        "bpspow":"Demonstration",
+	"crossbpssof":"Demonstration",
+    	"crossbpsdaa":"Demonstration",
+	"bpsdaa":"Demonstration",
+        "bpsauto":"Demonstration",
+        "bpssus":"Demonstration",
+        "bpssec":"Demonstration",
+	"bpscloud":"Demonstration",
+    	"ptsstor":"Demonstration",
+	"ptspow":"Demonstration",
+	"crosspts":"Demonstration",
+        "crossptsdaa":"Demonstration",
+        "ptsdaa":"Demonstration",
+        "ptsauto":"Demonstration",
+	"ptssus":"Demonstration",
+	"ptssec":"Demonstration",
+        "ptscloud":"Demonstration",
+        "covered":"Demonstration"
     },
 
 ]
@@ -123,37 +153,83 @@ class CoverageModel(db.Model):
     __tablename__ = 'coverages'
     __table_args__ = TABLE_ARGS
     index = db.Column('INDEX',db.Integer, primary_key=True)
-    gbg = db.Column('GBG',db.String(255))
     country = db.Column('COUNTRY',db.String(255))
     shortname = db.Column('SHORTNAME',db.String(255))
-    motion = db.Column('MOTION',db.String(255))
-    ipsbuild = db.Column('IPSBUILD',db.String(255))
-    tpsservice = db.Column('tpsservice',db.String(255))
+    ceid = db.Column('CEID',db.String(255))
+    bpsstor = db.Column('BPSSTOR',db.String(255))
+    bpspow = db.Column('BPSPOW',db.String(255))
+    crossbpssof = db.Column('CROSSBPSSOF',db.String(255))
+    crossbpsdaa = db.Column('CROSSBPSDAA',db.String(255))
+    bpsdaa = db.Column('BPSDAA',db.String(255))
+    bpsauto = db.Column('BPSAUTO',db.String(255))
+    bpssus = db.Column('BPSSUS',db.String(255))
+    bpssec = db.Column('BPSSEC',db.String(255))
+    bpscloud = db.Column('BPSCLOUD',db.String(255))
+    ptsstor = db.Column('PTSSTOR',db.String(255))
+    ptspow = db.Column('PTSPOW',db.String(255))
+    crosspts = db.Column('CROSSPTS',db.String(255))
+    crossptsdaa = db.Column('CROSSPTSDAA',db.String(255))
+    ptsdaa = db.Column('PTSDAA',db.String(255))
+    ptsauto = db.Column('PTSAUTO',db.String(255))
+    ptssus = db.Column('PTSSUS',db.String(255))
+    ptssec = db.Column('PTSSEC',db.String(255))
+    ptscloud = db.Column('PTSCLOUD',db.String(255))
     covered = db.Column('COVERED',db.String(255))
+    
     
 
 
 # the Python output for Coverages
 class CoverageOutSchema(Schema):
     index = Integer()
-    gbg = String()
     country = String()
     shortname = String()
-    motion = String()
-    ipsbuild = String()
-    tpsservice = String()
+    ceid = String()
+    bpsstor = String()
+    bpspow = String()
+    crossbpssof = String()
+    crossbpsdaa = String()
+    bpsdaa = String()
+    bpsauto = String()
+    bpssus = String()
+    bpssec = String()
+    bpscloud = String()
+    ptsstor = String()
+    ptspow = String()
+    crosspts = String()
+    crossptsdaa = String()
+    ptsdaa = String()
+    ptsauto = String()
+    ptssus = String()
+    ptssec = String()
+    ptscloud = String()
     covered = String()
 
 
 # the Python input for coverages
 class CoverageInSchema(Schema):
-    gbg = String(required=True, validate=Length(0, 255))
     country = String(required=True, validate=Length(0, 255))
     shortname = String(required=True, validate=Length(0, 255))
-    motion = String(required=True, validate=Length(0,255))
-    ipsbuild = String(required=True, validate=Length(0,255))
-    tpsservice = String(required=True, validate=Length(0,255))
-    covered = String(required=True, validate=Length(0,255))
+    ceid = String(required=True, validate=Length(0, 255))
+    bpsstor = String(required=True, validate=Length(0, 255))
+    bpspow = String(required=True, validate=Length(0, 255))
+    crossbpssof = String(required=True, validate=Length(0, 255))
+    crossbpsdaa = String(required=True, validate=Length(0, 255))
+    bpsdaa = String(required=True, validate=Length(0, 255))
+    bpsauto = String(required=True, validate=Length(0, 255))
+    bpssus = String(required=True, validate=Length(0, 255))
+    bpssec = String(required=True, validate=Length(0, 255))
+    bpscloud = String(required=True, validate=Length(0, 255))
+    ptsstor = String(required=True, validate=Length(0, 255))
+    ptspow = String(required=True, validate=Length(0, 255))
+    crosspts = String(required=True, validate=Length(0, 255))
+    crossptsdaa = String(required=True, validate=Length(0, 255))
+    ptsdaa = String(required=True, validate=Length(0, 255))
+    ptsauto = String(required=True, validate=Length(0, 255))
+    ptssus = String(required=True, validate=Length(0, 255))
+    ptssec = String(required=True, validate=Length(0, 255))
+    ptscloud = String(required=True, validate=Length(0, 255))
+    covered = String(required=True, validate=Length(0, 255))
     
 
 # use with pagination
@@ -173,16 +249,16 @@ def verify_token(token):
     else:
         return None
 
-# retrieve a single coverage record by GBG
-@app.get('/coverages/gbg/<string:gbg>')
+# retrieve a single coverage record by CEID
+@app.get('/coverages/ceid/<string:ceid>')
 @app.output(CoverageOutSchema)
 @app.auth_required(auth)
-def get_coverage_gbg(gbg):
-    """Coverage record by GBG
-    Retrieve a single coverage record by its GBG
+def get_coverage_ceid(ceid):
+    """Coverage record by CEID
+    Retrieve a single coverage record by its CEID
     """
-    search="%{}%".format(gbg)
-    return CoverageModel.query.filter(CoverageModel.gbg.ilike(search)).first()
+    search="%{}%".format(ceid)
+    return CoverageModel.query.filter(CoverageModel.ceid.ilike(search)).first()
 
 # retrieve a single coverage record by name
 @app.get('/coverages/name/<string:short_name>')
@@ -225,7 +301,7 @@ def get_coverages(query):
 @app.auth_required(auth)
 def create_coverage(data):
     """Insert a new coverage record
-    Insert a new coverage record with the given attributes. Its new GBG is returned.
+    Insert a new coverage record with the given attributes. Its new CEID is returned.
     """
     coverage = CoverageModel(**data)
     db.session.add(coverage)
@@ -234,14 +310,14 @@ def create_coverage(data):
 
 
 # delete a coverage record
-@app.delete('/coverages/gbg/<int:gbg>')
+@app.delete('/coverages/ceid/<int:ceid>')
 @app.output({}, 204)
 @app.auth_required(auth)
-def delete_coverage(gbg):
-    """Delete a coverage record by gbg
-    Delete a single coverage record identified by its gbg.
+def delete_coverage(ceid):
+    """Delete a coverage record by ceid
+    Delete a single coverage record identified by its ceid.
     """
-    coverage = CoverageModel.query.get_or_404(gbg)
+    coverage = CoverageModel.query.get_or_404(ceid)
     db.session.delete(coverage)
     db.session.commit()
     return ''
