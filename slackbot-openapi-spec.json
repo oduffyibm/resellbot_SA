@@ -150,7 +150,7 @@
           }
         },
         "summary": "Insert a new coverage record",
-        "description": "Insert a new coverage record with the given attributes. Its new GBG is returned.",
+        "description": "Insert a new coverage record with the given attributes. Its new ceid is returned.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -219,12 +219,12 @@
         ]
       }
     },
-    "/coverages/gbg/{gbg}": {
+    "/coverages/ceid/{ceid}": {
       "get": {
         "parameters": [
           {
             "in": "path",
-            "name": "gbg",
+            "name": "ceid",
             "schema": {
               "type": "string"
             },
@@ -263,8 +263,8 @@
             "description": "Not found"
           }
         },
-        "summary": "Coverage record by GBG",
-        "description": "Retrieve a single coverage record by its GBG",
+        "summary": "Coverage record by ceid",
+        "description": "Retrieve a single coverage record by its ceid",
         "security": [
           {
             "ApiKeyAuth": []
@@ -275,7 +275,7 @@
         "parameters": [
           {
             "in": "path",
-            "name": "gbg",
+            "name": "ceid",
             "schema": {
               "type": "string"
             },
@@ -307,8 +307,8 @@
             "description": "Not found"
           }
         },
-        "summary": "Delete a coverage record by GBG",
-        "description": "Delete a single coverage record identified by its GBG.",
+        "summary": "Delete a coverage record by ceid",
+        "description": "Delete a single coverage record identified by its ceid.",
         "security": [
           {
             "ApiKeyAuth": []
@@ -454,7 +454,7 @@
           "shortname": {
             "type": "string"
           },
-          "gbg": {
+          "ceid": {
             "type": "string"
           },
           "motion": {
@@ -498,7 +498,7 @@
             "minLength": 0,
             "maxLength": 255
           },
-          "gbg": {
+          "ceid": {
             "type": "string",
             "minLength": 0,
             "maxLength": 255
@@ -526,7 +526,7 @@
         },
         "required": [
           "shortname",
-          "gbg"
+          "ceid"
         ]
       }
     },
