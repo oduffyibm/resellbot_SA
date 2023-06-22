@@ -457,13 +457,58 @@
           "ceid": {
             "type": "string"
           },
-          "motion": {
+          "bpsstor": {
             "type": "string"
           },
-          "ipsbuild": {
+          "bpspow": {
             "type": "string"
           },
-          "tpsservice": {
+          "crossbpssof": {
+            "type": "string"
+          },
+          "crossbpsdaa": {
+            "type": "string"
+          },
+          "bpsdaa": {
+            "type": "string"
+          },
+          "bpsauto": {
+            "type": "string"
+          },
+          "bpssus": {
+            "type": "string"
+          },
+          "bpssec": {
+            "type": "string"
+          },
+          "bpscloud": {
+            "type": "string"
+          },
+          "ptsstor": {
+            "type": "string"
+          },
+          "ptspow": {
+            "type": "string"
+          },
+          "crosspts": {
+            "type": "string"
+          },
+          "crossptsdaa": {
+            "type": "string"
+          },
+          "ptsdaa": {
+            "type": "string"
+          },
+          "ptsauto": {
+            "type": "string"
+          },
+          "ptssus": {
+            "type": "string"
+          },
+          "ptssec": {
+            "type": "string"
+          },
+          "ptscloud": {
             "type": "string"
           },
           "covered": {
@@ -503,17 +548,92 @@
             "minLength": 0,
             "maxLength": 255
           },
-          "motion": {
+          "bpsstor": {
             "type": "string",
             "minLength": 0,
             "maxLength": 255
           },
-          "ipsbuild": {
+          "bpspow": {
             "type": "string",
             "minLength": 0,
             "maxLength": 255
           },
-          "tpsservice": {
+          "crossbpssof": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "crossbpsdaa": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "bpsdaa": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "bpsauto": {
+           "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "bpssus": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "bpssec": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "bpscloud": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "ptsstor": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "ptspow": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "crosspts": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "crossptsdaa": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "ptsdaa": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "ptsauto": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "ptssus": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "ptssec": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "ptscloud": {
             "type": "string",
             "minLength": 0,
             "maxLength": 255
@@ -525,8 +645,9 @@
           }
         },
         "required": [
+          "aid",
           "shortname",
-          "ceid"
+          "paid"
         ]
       }
     },
