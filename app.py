@@ -150,7 +150,7 @@ sample_coverages=[
 # Schema for table “coverages"
 # Set default schema to "coverages"
 class CoverageModel(db.Model):
-    __tablename__ = 'coverages'
+    __tablename__ = 'RESELL COVERAGES_SA'
     __table_args__ = TABLE_ARGS
     index = db.Column('INDEX',db.Integer, primary_key=True)
     country = db.Column('COUNTRY',db.String(255))
